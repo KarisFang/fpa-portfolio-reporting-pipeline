@@ -1,0 +1,13 @@
+product_id,product_name,category,unit_cost,unit_price
+1,"Aurora Laptop 14",Electronics,620.0,1199.0
+2,"Aurora Laptop 16 Pro",Electronics,980.0,1899.0
+3,"Aurora Tablet Air",Electronics,280.0,599.0
+4,"Aurora Wireless Earbuds",Accessories,38.0,129.0
+5,"Aurora Smartwatch",Accessories,110.0,329.0
+6,"Aurora Charging Dock",Accessories,14.0,49.0
+7,"Aurora Cloud Suite (Annual)",Software,8.0,99.0
+8,"Aurora Security Suite (Annual)",Software,5.0,59.0
+9,"Aurora Creative Studio (Annual)",Software,12.0,149.0
+10,"Aurora Care Plan",Services,6.0,89.0
+11,"Aurora Setup & Migration",Services,18.0,119.0
+12,"Aurora Premium Support",Services,22.0,179.0

@@ -1,0 +1,68 @@
+<svg viewBox="0 0 1000 480" xmlns="http://www.w3.org/2000/svg" font-family="Calibri, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#1F4E78"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="480" fill="#FFFFFF"/>
+
+  <text x="500" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#1F4E78">Automated Monthly Reporting Pipeline — Architecture</text>
+
+  <!-- Stage 1: Data generation -->
+  <rect x="30" y="80" width="200" height="90" rx="8" fill="#1F4E78"/>
+  <text x="130" y="110" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">Synthetic Transaction Data</text>
+  <text x="130" y="130" text-anchor="middle" font-size="11" fill="#D9E1F2">seed_data.sql</text>
+  <text x="130" y="146" text-anchor="middle" font-size="11" fill="#D9E1F2">Recursive CTEs + weighted</text>
+  <text x="130" y="160" text-anchor="middle" font-size="11" fill="#D9E1F2">random sampling — pure SQL</text>
+
+  <!-- Arrow 1 -->
+  <line x1="230" y1="125" x2="290" y2="125" stroke="#1F4E78" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2: SQLite DB -->
+  <rect x="300" y="80" width="200" height="90" rx="8" fill="#2E75B6"/>
+  <text x="400" y="110" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">SQLite Database</text>
+  <text x="400" y="130" text-anchor="middle" font-size="11" fill="#DEEBF7">sales.db</text>
+  <text x="400" y="146" text-anchor="middle" font-size="11" fill="#DEEBF7">Star schema: 1 fact table +</text>
+  <text x="400" y="160" text-anchor="middle" font-size="11" fill="#DEEBF7">5 dimension tables</text>
+
+  <!-- Arrow 2 -->
+  <line x1="500" y1="125" x2="560" y2="125" stroke="#1F4E78" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3: KPI Queries -->
+  <rect x="570" y="80" width="200" height="90" rx="8" fill="#2E75B6"/>
+  <text x="670" y="110" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">KPI Query Library</text>
+  <text x="670" y="130" text-anchor="middle" font-size="11" fill="#DEEBF7">kpi_queries.sql</text>
+  <text x="670" y="146" text-anchor="middle" font-size="11" fill="#DEEBF7">Joins, CTEs, window functions</text>
+  <text x="670" y="160" text-anchor="middle" font-size="11" fill="#DEEBF7">(LAG, RANK, running totals)</text>
+
+  <!-- Arrow down-left to Excel -->
+  <line x1="670" y1="170" x2="670" y2="220" stroke="#1F4E78" stroke-width="2"/>
+  <line x1="670" y1="220" x2="220" y2="220" stroke="#1F4E78" stroke-width="2"/>
+  <line x1="220" y1="220" x2="220" y2="270" stroke="#1F4E78" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Arrow down-right to Power BI -->
+  <line x1="670" y1="220" x2="780" y2="220" stroke="#1F4E78" stroke-width="2"/>
+  <line x1="780" y1="220" x2="780" y2="270" stroke="#1F4E78" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="450" y="212" text-anchor="middle" font-size="11" fill="#595959">CSV extracts (.csv) — pure SQL exports, no Python</text>
+
+  <!-- Excel branch -->
+  <rect x="80" y="280" width="280" height="110" rx="8" fill="#21A366"/>
+  <text x="220" y="310" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">Excel Reporting Pack</text>
+  <text x="220" y="330" text-anchor="middle" font-size="11" fill="#E2F0D9">FPA_Monthly_Reporting_Pack.xlsx</text>
+  <text x="220" y="346" text-anchor="middle" font-size="11" fill="#E2F0D9">Dashboard + KPI cards + charts</text>
+  <text x="220" y="362" text-anchor="middle" font-size="11" fill="#E2F0D9">MoM/YoY/rolling-avg formulas</text>
+  <text x="220" y="378" text-anchor="middle" font-size="11" fill="#E2F0D9">computed live in Excel</text>
+
+  <!-- Power BI branch -->
+  <rect x="640" y="280" width="280" height="110" rx="8" fill="#F2C811"/>
+  <text x="780" y="310" text-anchor="middle" font-size="14" font-weight="bold" fill="#3B3B3B">Power BI Dashboard</text>
+  <text x="780" y="330" text-anchor="middle" font-size="11" fill="#3B3B3B">Star-schema data model</text>
+  <text x="780" y="346" text-anchor="middle" font-size="11" fill="#3B3B3B">DAX measures (YoY, MoM, YTD)</text>
+  <text x="780" y="362" text-anchor="middle" font-size="11" fill="#3B3B3B">Scheduled refresh against</text>
+  <text x="780" y="378" text-anchor="middle" font-size="11" fill="#3B3B3B">the SQL source</text>
+
+  <!-- Bottom note -->
+  <text x="500" y="430" text-anchor="middle" font-size="12" fill="#595959">Replaces a manual monthly Excel-pull process with a single repeatable SQL pipeline feeding two BI layers</text>
+  <text x="500" y="452" text-anchor="middle" font-size="11" fill="#9B9B9B">Refresh cadence: re-run seed/ETL on a schedule (cron / Task Scheduler) -&gt; both dashboards update</text>
+</svg>

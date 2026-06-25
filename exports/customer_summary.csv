@@ -1,0 +1,61 @@
+customer_name,segment,region_name,total_revenue,total_gross_profit
+"Customer 011",Consumer,"North America",1416013.97,670372.97
+"Customer 026",SMB,"North America",1228490.93,608419.93
+"Customer 021",Consumer,"North America",1182150.35,580704.35
+"Customer 056",SMB,"North America",1177951.22,589614.22
+"Customer 036",SMB,"North America",1141319.5,564307.5
+"Customer 041",Consumer,"North America",1121545.81,558127.81
+"Customer 001",Consumer,"North America",1085500.91,557174.91
+"Customer 007",Consumer,Europe,1072071.49,509821.49
+"Customer 016",SMB,"North America",1055439.11,541098.11
+"Customer 006",SMB,"North America",1031553.28,516742.28
+"Customer 046",SMB,"North America",935710.31,484951.31
+"Customer 017",Consumer,Europe,900135.66,433139.66
+"Customer 048",SMB,"Greater Asia",875285.88,429022.88
+"Customer 012",SMB,Europe,871283.16,447089.16
+"Customer 042",SMB,Europe,849046.6,405480.6
+"Customer 022",SMB,Europe,845898.77,439217.77
+"Customer 018",SMB,"Greater Asia",835430.87,395606.87
+"Customer 057",Consumer,Europe,829930.76,416456.76
+"Customer 031",Consumer,"North America",757951.2,399196.2
+"Customer 023",Consumer,"Greater Asia",738095.33,372436.33
+"Customer 008",SMB,"Greater Asia",728100.27,350314.27
+"Customer 052",SMB,Europe,728098.5,373074.5
+"Customer 043",Consumer,"Greater Asia",721188.81,343461.81
+"Customer 051",Consumer,"North America",690124.67,370832.67
+"Customer 028",SMB,"Greater Asia",671386.14,319194.14
+"Customer 037",Consumer,Europe,666936.72,337131.72
+"Customer 002",SMB,Europe,665622.33,342461.33
+"Customer 034",SMB,APAC,664546.95,318027.95
+"Customer 013",Consumer,"Greater Asia",661025.35,337930.35
+"Customer 032",SMB,Europe,649922.25,332425.25
+"Customer 027",Consumer,Europe,636802.42,340894.42
+"Customer 053",Consumer,"Greater Asia",597522.55,322499.55
+"Customer 038",SMB,"Greater Asia",595298.6,309196.6
+"Customer 033",Consumer,"Greater Asia",570012.41,300235.41
+"Customer 059",Consumer,APAC,553570.29,271987.29
+"Customer 003",Consumer,"Greater Asia",545474.4,283445.4
+"Customer 058",SMB,"Greater Asia",539970.63,280195.63
+"Customer 004",SMB,APAC,515535.15,248586.15
+"Customer 044",SMB,APAC,489435.15,233857.15
+"Customer 039",Consumer,APAC,479511.03,243222.03
+"Customer 047",Consumer,Europe,460907.16,256352.16
+"Customer 054",SMB,APAC,382503.72,195599.72
+"Customer 009",Consumer,APAC,381201.7,201116.7
+"Customer 029",Consumer,APAC,379802.44,190876.44
+"Customer 019",Consumer,APAC,375085.72,204868.72
+"Customer 024",SMB,APAC,335968.27,179649.27
+"Customer 014",SMB,APAC,320006.06,168322.06
+"Customer 050",Enterprise,"Latin America",273478.01,134231.01
+"Customer 010",Enterprise,"Latin America",262964.37,125126.37
+"Customer 045",Enterprise,"Latin America",254990.46,121080.46
+"Customer 015",Enterprise,"Latin America",252728.05,124447.05
+"Customer 020",Enterprise,"Latin America",241967.78,120459.78
+"Customer 030",Enterprise,"Latin America",201041.99,100876.99
+"Customer 049",Consumer,APAC,197029.45,118883.45
+"Customer 035",Enterprise,"Latin America",196725.29,104596.29
+"Customer 025",Enterprise,"Latin America",192783.63,103688.63
+"Customer 055",Enterprise,"Latin America",182694.0,95897.0
+"Customer 060",Enterprise,"Latin America",161152.01,86972.01
+"Customer 005",Enterprise,"Latin America",157510.04,83309.04
+"Customer 040",Enterprise,"Latin America",122070.31,66218.31
