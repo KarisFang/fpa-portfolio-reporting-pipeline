@@ -6,7 +6,7 @@ Power BI build guide) consuming the same clean output.
 
 **Portfolio project #2 of 3** mapping directly to FP&A job descriptions.
 ([Project 1: 3-statement model](https://github.com/KarisFang/fpa-portfolio-3-statement-model) ·
-Project 3: budget-vs-actual variance dashboard — coming soon)
+[Project 3: budget-vs-actual variance dashboard](https://github.com/KarisFang/fpa-portfolio-variance-dashboard))
 
 ## The story in the data
 
