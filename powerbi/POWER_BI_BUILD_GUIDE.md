@@ -90,12 +90,12 @@ Revenue Rank (Customer) = RANKX(ALL(dim_customer[customer_name]), [Total Revenue
 Add a **Page-level filter** on `dim_date[year]` so a stakeholder can flip between FY2024 and FY2025 instantly —
 this is the single feature that most replaces the "can you re-cut this for last year too?" email.
 
-## 5. Publish & share
+## 5. Publish & share (the plan, once I have Windows access)
 
-**File → Publish → Power BI Service** (free workspace is fine). Once published:
-- Use **File → Embed report → Publish to web** (if the data is non-sensitive, which this synthetic dataset is)
-  to get a public link for your portfolio/resume.
-- Otherwise, share the workspace link directly — recruiters with a Power BI (free) account can open it.
+**File → Publish → Power BI Service** (free workspace is fine). Once published, I'd:
+- Use **File → Embed report → Publish to web** (the data is synthetic and non-sensitive, so this is safe here)
+  to get a public link for this portfolio/resume.
+- Or, failing that, just share the workspace link directly — recruiters with a free Power BI account could open it.
 
 ## Why this matters for an FP&A role
 
