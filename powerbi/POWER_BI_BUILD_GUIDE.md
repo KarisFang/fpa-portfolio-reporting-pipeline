@@ -95,9 +95,8 @@ this is the single feature that most replaces the "can you re-cut this for last 
 **File → Publish → Power BI Service** (free workspace is fine). Once published, I'd:
 - Use **File → Embed report → Publish to web** (the data is synthetic and non-sensitive, so this is safe here)
   to get a public link for this portfolio/resume.
-- Or, failing that, just share the workspace link directly — recruiters with a free Power BI account could open it.
 
-## Why this matters for an FP&A role
+## Why this matters
 
 This is the exact workflow that replaces a "pull last month's numbers into Excel by hand" process:
 SQL does the heavy aggregation once, and both Excel (for stakeholders who live in spreadsheets) and Power BI
