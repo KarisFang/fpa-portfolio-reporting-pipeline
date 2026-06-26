@@ -11,7 +11,7 @@ Power BI build guide) consuming the same clean output.
 ## See it live
 
 **[→ Open the interactive dashboard](https://karisfang.github.io/fpa-portfolio-reporting-pipeline/)** — no Power BI
-account or download needed, just a browser. Hosted free on GitHub Pages from `docs-site/index.html`.
+account or download needed, just a browser. Hosted free on GitHub Pages from `docs/index.html`.
 
 ## The story in the data
 
@@ -33,7 +33,8 @@ and mix-shift patterns so the KPI queries have something genuine to find:
 | `excel/` | `FPA_Monthly_Reporting_Pack.xlsx` — a Dashboard tab (KPI cards + 3 live charts) backed by data tabs where every growth rate/margin/share is a **live Excel formula**, not a pre-baked number |
 | `powerbi/` | `POWER_BI_BUILD_GUIDE.md` — exact DAX measures, data model relationships, and report layout to turn this into a real, publishable Power BI dashboard in ~15 minutes |
 | `architecture/` | `architecture_diagram.svg` — pipeline architecture, data generation → SQLite → KPI queries → Excel / Power BI |
-| `docs-site/` | `index.html` — a standalone interactive dashboard (Chart.js, dark "ledger" theme) hosted free on GitHub Pages, for viewing without Power BI |
+| `docs/` | `index.html` — a standalone interactive dashboard (Chart.js, dark "ledger" theme), hosted free on GitHub Pages from this folder, for viewing without Power BI |
+| `methodology/` | `DATA_AND_KPI_METHODOLOGY.md` — how the synthetic data's seasonality/growth/mix-shift patterns were built, a real SQLite bug hit and fixed along the way, and the KPI query design choices |
 
 ## How the pipeline works
 
