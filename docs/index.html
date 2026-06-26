@@ -7,7 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.umd.min.js"
+  onerror="this.onerror=null;var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.min.js';s.onload=function(){if(window.renderMeridianCharts)window.renderMeridianCharts();};document.head.appendChild(s);"></script>
 <style>
   :root{
     --bg:#0E1525;
@@ -453,7 +454,11 @@ try {
   });
 } catch (e) { console.error('Table render failed:', e); }
 
-// Charts — wrapped so a Chart.js load failure can't take the tables down with it.
+// Charts — wrapped in a named function so it can run immediately (if Chart.js
+// loaded normally) or later, triggered by the jsDelivr fallback's onload if the
+// primary cdnjs load failed. Also wrapped in try/catch so a failure here can't
+// take the already-rendered tables above down with it.
+window.renderMeridianCharts = function() {
 try {
   Chart.defaults.font.family = "'Inter', sans-serif";
   Chart.defaults.color = "#8C93A8";
@@ -515,6 +520,12 @@ try {
     el.innerHTML = '<p style="color:#8C93A8;font-size:12.5px;padding-top:40px;text-align:center;">Chart failed to load — see the SQL/Excel exports in the repo for the same data.</p>';
   });
 }
+};
+
+// If Chart.js already loaded successfully (the normal case), render now.
+// If not, do nothing here — the cdnjs onerror handler's jsDelivr fallback
+// will call window.renderMeridianCharts() itself once it finishes loading.
+if (window.Chart) { window.renderMeridianCharts(); }
 </script>
 
 </body>
