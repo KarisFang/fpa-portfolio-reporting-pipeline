@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian Retail Co. — FY2024–2025 Performance Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<style>
+  :root{
+    --bg:#0E1525;
+    --surface:#161E33;
+    --surface-2:#1D2740;
+    --hairline:#2A3554;
+    --gold:#D6A24C;
+    --gold-dim:#8A6A30;
+    --teal:#4FB8AC;
+    --text:#F2EFE6;
+    --text-muted:#8C93A8;
+    --negative:#E0645A;
+    --positive:#6FBF8B;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.5;
+  }
+  a{color:var(--gold);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+  .meridian-bg{
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--hairline);
+  }
+  .meridian-bg svg{
+    position:absolute;
+    top:-40%; left:50%;
+    transform:translateX(-50%);
+    width:1400px; max-width:none;
+    opacity:0.16;
+    pointer-events:none;
+  }
+  header.hero{
+    position:relative;
+    z-index:1;
+    max-width:1180px;
+    margin:0 auto;
+    padding:48px 28px 36px;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  .eyebrow .dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--positive);
+    box-shadow:0 0 0 3px rgba(111,191,139,0.18);
+  }
+  h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:clamp(28px,4vw,42px);
+    margin:0 0 6px;
+    letter-spacing:-0.01em;
+  }
+  .hero p.sub{
+    color:var(--text-muted);
+    font-size:15px;
+    max-width:560px;
+    margin:0;
+  }
+  .hero-links{
+    margin-top:22px;
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+  }
+  .hero-links a{
+    color:var(--text-muted);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+  }
+  .hero-links a:hover{color:var(--gold); border-bottom-color:var(--gold);}
+
+  main{max-width:1180px;margin:0 auto;padding:36px 28px 64px;}
+
+  section{margin-bottom:42px;}
+  .section-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    margin:0 0 14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .section-label::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--hairline);
+  }
+
+  .kpi-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+  }
+  @media (max-width:900px){.kpi-grid{grid-template-columns:repeat(2,1fr);}}
+  .kpi-card{
+    background:var(--surface);
+    border:1px solid var(--hairline);
+    border-left:3px solid var(--gold);
+    border-radius:6px;
+    padding:16px 16px 14px;
+  }
+  .kpi-label{
+    font-size:11.5px;
+    color:var(--text-muted);
+    margin-bottom:8px;
+    letter-spacing:0.01em;
+  }
+  .kpi-value{
+    font-family:'JetBrains Mono',monospace;
+    font-weight:600;
+    font-size:22px;
+    letter-spacing:-0.01em;
+    font-variant-numeric:tabular-nums;
+  }
+  .kpi-value.neg{color:var(--negative);}
+  .kpi-value.pos{color:var(--positive);}
+
+  .insight-banner{
+    background:linear-gradient(90deg, rgba(214,162,76,0.10), rgba(214,162,76,0.02));
+    border:1px solid var(--hairline);
+    border-left:3px solid var(--gold);
+    border-radius:6px;
+    padding:18px 22px;
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+  }
+  .insight-banner .flag{
+    font-family:'JetBrains Mono',monospace;
+    color:var(--gold);
+    font-size:13px;
+    font-weight:600;
+    white-space:nowrap;
+    padding-top:1px;
+  }
+  .insight-banner p{margin:0;font-size:14px;color:var(--text);}
+  .insight-banner b{color:var(--gold);font-family:'JetBrains Mono',monospace;font-weight:600;}
+  .insight-banner .neg-strong{color:var(--negative);font-family:'JetBrains Mono',monospace;font-weight:600;}
+  .insight-banner .pos-strong{color:var(--positive);font-family:'JetBrains Mono',monospace;font-weight:600;}
+
+  .chart-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:16px;
+  }
+  @media (max-width:900px){.chart-grid{grid-template-columns:1fr;}}
+  .panel{
+    background:var(--surface);
+    border:1px solid var(--hairline);
+    border-radius:8px;
+    padding:18px 18px 8px;
+  }
+  .panel h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:15px;
+    font-weight:600;
+    margin:0 0 2px;
+  }
+  .panel .panel-sub{
+    font-size:12px;
+    color:var(--text-muted);
+    margin:0 0 10px;
+  }
+  .chart-wrap{position:relative;height:280px;}
+  .chart-wrap.short{height:240px;}
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+  }
+  th{
+    text-align:left;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    padding:9px 10px;
+    border-bottom:1px solid var(--hairline);
+  }
+  td{
+    padding:9px 10px;
+    border-bottom:1px solid var(--hairline);
+    font-family:'JetBrains Mono',monospace;
+    font-variant-numeric:tabular-nums;
+  }
+  td.name-cell{font-family:'Inter',sans-serif;}
+  tr:last-child td{border-bottom:none;}
+  .num{text-align:right;}
+  .badge{
+    display:inline-block;
+    font-size:10.5px;
+    padding:2px 7px;
+    border-radius:4px;
+    background:var(--surface-2);
+    color:var(--text-muted);
+    font-family:'Inter',sans-serif;
+  }
+  .margin-bar-bg{
+    width:60px;height:5px;background:var(--surface-2);border-radius:3px;display:inline-block;vertical-align:middle;margin-right:8px;overflow:hidden;
+  }
+  .margin-bar-fill{height:100%;background:var(--teal);}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:900px){.two-col{grid-template-columns:1fr;}}
+
+  footer{
+    border-top:1px solid var(--hairline);
+    padding:28px 28px 40px;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  footer p{
+    color:var(--text-muted);
+    font-size:12.5px;
+    margin:0 0 10px;
+  }
+  footer .repo-links{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+  }
+  footer .repo-links a{text-decoration:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="meridian-bg">
+  <svg viewBox="0 0 1400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <ellipse cx="700" cy="700" rx="660" ry="660" fill="none" stroke="#D6A24C" stroke-width="1"/>
+    <ellipse cx="700" cy="700" rx="660" ry="520" fill="none" stroke="#D6A24C" stroke-width="1"/>
+    <ellipse cx="700" cy="700" rx="660" ry="360" fill="none" stroke="#D6A24C" stroke-width="1"/>
+    <ellipse cx="700" cy="700" rx="660" ry="200" fill="none" stroke="#D6A24C" stroke-width="1"/>
+    <line x1="40" y1="700" x2="1360" y2="700" stroke="#D6A24C" stroke-width="1"/>
+  </svg>
+  <header class="hero">
+    <div class="eyebrow"><span class="dot"></span> FP&amp;A PORTFOLIO PROJECT 2 &middot; LIVE DATA SHOWCASE</div>
+    <h1>Meridian Retail Co.</h1>
+    <p class="sub">FY2024&ndash;2025 performance review, generated from a SQL reporting pipeline &mdash; not pasted into a slide. Every figure below traces back to the queries in the repo.</p>
+    <div class="hero-links">
+      <a href="https://github.com/KarisFang/fpa-portfolio-reporting-pipeline" target="_blank" rel="noopener">View the repo →</a>
+      <a href="https://github.com/KarisFang/fpa-portfolio-reporting-pipeline/blob/main/sql/kpi_queries.sql" target="_blank" rel="noopener">SQL queries</a>
+      <a href="https://github.com/KarisFang/fpa-portfolio-reporting-pipeline/blob/main/excel/FPA_Monthly_Reporting_Pack.xlsx" target="_blank" rel="noopener">Excel dashboard</a>
+      <a href="https://github.com/KarisFang/fpa-portfolio-reporting-pipeline/blob/main/powerbi/POWER_BI_BUILD_GUIDE.md" target="_blank" rel="noopener">Power BI build guide</a>
+    </div>
+  </header>
+</div>
+
+<main>
+
+  <section aria-label="Key metrics">
+    <div class="section-label">FY2025 at a glance</div>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">FY2025 Net Revenue</div>
+        <div class="kpi-value">$18.72M</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">YoY Growth (FY25 vs FY24)</div>
+        <div class="kpi-value neg">&minus;1.1%</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Gross Margin</div>
+        <div class="kpi-value">50.8%</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Transactions (FY25)</div>
+        <div class="kpi-value">7,353</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Online Channel Share</div>
+        <div class="kpi-value pos">19.7%</div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Headline insight">
+    <div class="insight-banner">
+      <div class="flag">▸ FLAGGED</div>
+      <p>Company-wide revenue looks flat YoY (<span class="neg-strong">&minus;1.1%</span>) &mdash; but that average
+      hides the real story. <b>North America</b> grew <span class="pos-strong">+23.8%</span> while
+      <b>Greater Asia</b> fell <span class="neg-strong">&minus;37.8%</span>. One region's decline offset almost
+      all of the company's growth elsewhere. A blended growth number alone would never have surfaced this.</p>
+    </div>
+  </section>
+
+  <section aria-label="Revenue trend and regional performance">
+    <div class="section-label">Revenue trend &amp; regional mix</div>
+    <div class="chart-grid">
+      <div class="panel">
+        <h3>Monthly Net Revenue &amp; Gross Profit</h3>
+        <p class="panel-sub">FY2024&ndash;FY2025 &middot; note the Nov&ndash;Dec seasonality spike both years</p>
+        <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+      </div>
+      <div class="panel">
+        <h3>Revenue by Region</h3>
+        <p class="panel-sub">FY2024 vs FY2025</p>
+        <div class="chart-wrap"><canvas id="regionChart"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Channel and category performance">
+    <div class="section-label">Channel mix &amp; product performance</div>
+    <div class="two-col">
+      <div class="panel">
+        <h3>Channel Mix — FY2025</h3>
+        <p class="panel-sub">Online is gaining share at Wholesale/Retail's expense</p>
+        <div class="chart-wrap short"><canvas id="channelChart"></canvas></div>
+      </div>
+      <div class="panel">
+        <h3>Revenue by Product Category</h3>
+        <p class="panel-sub">FY2024&ndash;25 combined &middot; gross margin %</p>
+        <table>
+          <thead><tr><th>Category</th><th class="num">Revenue</th><th>Margin</th></tr></thead>
+          <tbody id="categoryTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Top customers">
+    <div class="section-label">Top 10 customers by revenue (FY2024&ndash;25)</div>
+    <div class="panel">
+      <table>
+        <thead>
+          <tr><th>Customer</th><th>Region</th><th>Segment</th><th class="num">Total Revenue</th></tr>
+        </thead>
+        <tbody id="customerTableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Synthetic transaction data generated entirely in SQL (recursive CTEs + weighted random sampling) for
+  "Meridian Retail Co.," a fictional company built for this portfolio project. Full methodology, the SQL
+  query library, the Excel dashboard, and the Power BI build guide are all in the repo.</p>
+  <div class="repo-links">
+    <a href="https://github.com/KarisFang/fpa-portfolio-reporting-pipeline">github.com/KarisFang/fpa-portfolio-reporting-pipeline</a>
+  </div>
+</footer>
+
+<script>
+const monthly = [
+  ["2024-01",1004033,514305],["2024-02",848108,454347],["2024-03",1502988,740247],
+  ["2024-04",1625214,803934],["2024-05",1609491,798952],["2024-06",1325123,670309],
+  ["2024-07",1766493,869299],["2024-08",1344138,665793],["2024-09",1604750,784630],
+  ["2024-10",1587226,801413],["2024-11",2470828,1220267],["2024-12",2242991,1119679],
+  ["2025-01",1263567,626837],["2025-02",1173359,608540],["2025-03",1072009,571397],
+  ["2025-04",1364720,724731],["2025-05",1446403,721201],["2025-06",1274058,668148],
+  ["2025-07",1373893,695190],["2025-08",1420271,733601],["2025-09",1369692,692511],
+  ["2025-10",1928854,973382],["2025-11",2239596,1119550],["2025-12",2795697,1382265]
+];
+
+const regionAnnual = [
+  ["North America",5729022,7094729],
+  ["Europe",4627659,4548997],
+  ["Greater Asia",4982241,3096550],
+  ["APAC",2500409,2573787],
+  ["Latin America",1092051,1408055]
+];
+
+const channelFY25 = [["Wholesale",13008623],["Online",3678634],["Retail",2034862]];
+
+const categories = [
+  ["Electronics",29190117,12621397],
+  ["Accessories",4982577,3221391],
+  ["Software",2002575,1821331],
+  ["Services",1478231,1296407]
+];
+
+const topCustomers = [
+  ["Customer 011","North America","Consumer",1416014],
+  ["Customer 026","North America","SMB",1228491],
+  ["Customer 021","North America","Consumer",1182150],
+  ["Customer 056","North America","SMB",1177951],
+  ["Customer 036","North America","SMB",1141320],
+  ["Customer 041","North America","Consumer",1121546],
+  ["Customer 001","North America","Consumer",1085501],
+  ["Customer 007","Europe","Consumer",1072071],
+  ["Customer 016","North America","SMB",1055439],
+  ["Customer 006","North America","SMB",1031553]
+];
+
+const fmtUSD = n => "$" + Math.round(n).toLocaleString("en-US");
+const fmtUSDShort = n => "$" + (n/1e6).toFixed(2) + "M";
+
+// Populate the data tables FIRST and independently of the charts below —
+// if Chart.js ever fails to load (slow network, ad-blocker, CDN hiccup),
+// the tables still render correctly rather than the whole page going blank.
+try {
+  const catBody = document.getElementById('categoryTableBody');
+  categories.forEach(([cat,rev,gp])=>{
+    const marginPct = gp/rev*100;
+    catBody.innerHTML += `<tr>
+      <td class="name-cell">${cat}</td>
+      <td class="num">${fmtUSDShort(rev)}</td>
+      <td><span class="margin-bar-bg"><span class="margin-bar-fill" style="width:${marginPct}%"></span></span>${marginPct.toFixed(1)}%</td>
+    </tr>`;
+  });
+
+  const custBody = document.getElementById('customerTableBody');
+  topCustomers.forEach(([name,region,segment,rev])=>{
+    custBody.innerHTML += `<tr>
+      <td class="name-cell">${name}</td>
+      <td class="name-cell">${region}</td>
+      <td><span class="badge">${segment}</span></td>
+      <td class="num">${fmtUSD(rev)}</td>
+    </tr>`;
+  });
+} catch (e) { console.error('Table render failed:', e); }
+
+// Charts — wrapped so a Chart.js load failure can't take the tables down with it.
+try {
+  Chart.defaults.font.family = "'Inter', sans-serif";
+  Chart.defaults.color = "#8C93A8";
+  Chart.defaults.borderColor = "#2A3554";
+
+  new Chart(document.getElementById('trendChart'), {
+    type:'line',
+    data:{
+      labels: monthly.map(m=>m[0]),
+      datasets:[
+        {label:'Net Revenue', data:monthly.map(m=>m[1]), borderColor:'#D6A24C', backgroundColor:'rgba(214,162,76,0.08)', fill:true, tension:0.3, pointRadius:0, borderWidth:2},
+        {label:'Gross Profit', data:monthly.map(m=>m[2]), borderColor:'#4FB8AC', backgroundColor:'transparent', tension:0.3, pointRadius:0, borderWidth:2}
+      ]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      interaction:{mode:'index', intersect:false},
+      plugins:{legend:{position:'top', align:'end', labels:{boxWidth:10, boxHeight:10, usePointStyle:true}}},
+      scales:{
+        x:{ticks:{maxRotation:0, autoSkip:true, maxTicksLimit:8}, grid:{display:false}},
+        y:{ticks:{callback:v=>fmtUSDShort(v)}, grid:{color:'#1D2740'}}
+      }
+    }
+  });
+
+  new Chart(document.getElementById('regionChart'), {
+    type:'bar',
+    data:{
+      labels: regionAnnual.map(r=>r[0]),
+      datasets:[
+        {label:'FY2024', data:regionAnnual.map(r=>r[1]), backgroundColor:'#2A3554', borderRadius:3},
+        {label:'FY2025', data:regionAnnual.map(r=>r[2]), backgroundColor:'#D6A24C', borderRadius:3}
+      ]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{position:'top', align:'end', labels:{boxWidth:10, boxHeight:10, usePointStyle:true}}},
+      scales:{
+        x:{grid:{display:false}, ticks:{font:{size:10.5}}},
+        y:{ticks:{callback:v=>fmtUSDShort(v)}, grid:{color:'#1D2740'}}
+      }
+    }
+  });
+
+  new Chart(document.getElementById('channelChart'), {
+    type:'doughnut',
+    data:{
+      labels: channelFY25.map(c=>c[0]),
+      datasets:[{data:channelFY25.map(c=>c[1]), backgroundColor:['#D6A24C','#4FB8AC','#566187'], borderColor:'#161E33', borderWidth:2}]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{position:'right', labels:{boxWidth:10, boxHeight:10, usePointStyle:true, font:{size:11.5}}}}
+    }
+  });
+} catch (e) {
+  console.error('Chart render failed:', e);
+  document.querySelectorAll('.chart-wrap').forEach(el => {
+    el.innerHTML = '<p style="color:#8C93A8;font-size:12.5px;padding-top:40px;text-align:center;">Chart failed to load — see the SQL/Excel exports in the repo for the same data.</p>';
+  });
+}
+</script>
+
+</body>
+</html>

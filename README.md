@@ -8,6 +8,11 @@ Power BI build guide) consuming the same clean output.
 ([Project 1: 3-statement model](https://github.com/KarisFang/fpa-portfolio-3-statement-model) ·
 [Project 3: budget-vs-actual variance dashboard](https://github.com/KarisFang/fpa-portfolio-variance-dashboard))
 
+## See it live
+
+**[→ Open the interactive dashboard](https://karisfang.github.io/fpa-portfolio-reporting-pipeline/)** — no Power BI
+account or download needed, just a browser. Hosted free on GitHub Pages from `docs-site/index.html`.
+
 ## The story in the data
 
 This isn't flat synthetic noise — the generator (`database/seed_data.sql`) injects real seasonality, growth,
@@ -28,6 +33,7 @@ and mix-shift patterns so the KPI queries have something genuine to find:
 | `excel/` | `FPA_Monthly_Reporting_Pack.xlsx` — a Dashboard tab (KPI cards + 3 live charts) backed by data tabs where every growth rate/margin/share is a **live Excel formula**, not a pre-baked number |
 | `powerbi/` | `POWER_BI_BUILD_GUIDE.md` — exact DAX measures, data model relationships, and report layout to turn this into a real, publishable Power BI dashboard in ~15 minutes |
 | `architecture/` | `architecture_diagram.svg` — pipeline architecture, data generation → SQLite → KPI queries → Excel / Power BI |
+| `docs-site/` | `index.html` — a standalone interactive dashboard (Chart.js, dark "ledger" theme) hosted free on GitHub Pages, for viewing without Power BI |
 
 ## How the pipeline works
 
