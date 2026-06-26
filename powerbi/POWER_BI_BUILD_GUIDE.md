@@ -4,16 +4,12 @@
 Power BI Desktop is Windows-only, I don't have a work/school email for the free Power BI tenant signup, and
 running Windows through a VM is constrained by limited disk space on this machine. Rather than skip Power BI
 entirely or fake a screenshot, what follows is the exact thought process and steps I'd execute the moment I
-have access to a Windows environment: the data model, every DAX measure, and the report layout, written
-precisely enough that you (or I, on a different machine) could follow it and get the same working dashboard
-in about 15 minutes. I'd rather show real reasoning I can defend in an interview than a screenshot I can't.
+have access to a Windows environment: the data model, every DAX measure, and the report layout.
 
-Everything below is exact and copy-pasteable. Once published to the Power BI Service, you'd have a
-public/shareable link for a portfolio.
 
 ## 1. Get the data in
 
-**Option A — CSV import (simplest, recommended for a portfolio demo):**
+**Option A — CSV import:**
 1. Open Power BI Desktop → **Get Data → Text/CSV**.
 2. Import each file from `exports/`: `fact_sales.csv`, `dim_date.csv`, `dim_product.csv`, `dim_region.csv`,
    `dim_channel.csv`, `dim_customer.csv`.
