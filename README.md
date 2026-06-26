@@ -13,6 +13,12 @@ Power BI build guide) consuming the same clean output.
 **[→ Open the interactive dashboard](https://karisfang.github.io/fpa-portfolio-reporting-pipeline/)** — no Power BI
 account or download needed, just a browser. Hosted free on GitHub Pages from `docs/index.html`.
 
+**A note on Power BI:** I built this on a MacBook with no Windows machine, no work/school email for the free
+Power BI tenant, and limited disk space to run one through a VM. So instead of a live Power BI dashboard,
+`powerbi/POWER_BI_BUILD_GUIDE.md` documents my actual thought process: the data model, every DAX measure, and
+the report layout, written precisely enough to execute the moment I have Windows access. The HTML dashboard
+above is what replaces it for now.
+
 ## The story in the data
 
 This isn't flat synthetic noise — the generator (`database/seed_data.sql`) injects real seasonality, growth,

@@ -1,8 +1,15 @@
 # Power BI Build Guide — Meridian Retail Co. Monthly Reporting Dashboard
 
-This isn't a `.pbix` file (Power BI Desktop doesn't run in this build environment), but everything below is
-exact, copy-pasteable, and takes about 15–20 minutes to turn into a real, publishable Power BI dashboard.
-Once published to the Power BI Service, you'll have a public/shareable link for your portfolio.
+**A note on why this is a guide and not a published dashboard:** I built this whole portfolio on a MacBook.
+Power BI Desktop is Windows-only, I don't have a work/school email for the free Power BI tenant signup, and
+running Windows through a VM is constrained by limited disk space on this machine. Rather than skip Power BI
+entirely or fake a screenshot, what follows is the exact thought process and steps I'd execute the moment I
+have access to a Windows environment: the data model, every DAX measure, and the report layout, written
+precisely enough that you (or I, on a different machine) could follow it and get the same working dashboard
+in about 15 minutes. I'd rather show real reasoning I can defend in an interview than a screenshot I can't.
+
+Everything below is exact and copy-pasteable. Once published to the Power BI Service, you'd have a
+public/shareable link for a portfolio.
 
 ## 1. Get the data in
 
