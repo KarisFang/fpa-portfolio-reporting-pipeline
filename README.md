@@ -4,7 +4,7 @@ A SQL-first reporting pipeline for a fictional retail company ("Meridian Retail 
 monthly Excel-pull process: one SQL database, a library of KPI queries, and two BI layers (Excel dashboard +
 Power BI build guide) consuming the same clean output.
 
-**Portfolio project #2 of 3** mapping directly to FP&A job descriptions.
+**Portfolio project #2 of 3**
 ([Project 1: 3-statement model](https://github.com/KarisFang/fpa-portfolio-3-statement-model) ·
 [Project 3: budget-vs-actual variance dashboard](https://github.com/KarisFang/fpa-portfolio-variance-dashboard))
 
@@ -67,7 +67,7 @@ cd ../excel
 python3 build_dashboard.py
 ```
 
-## Why this is the FP&A skill, not just a SQL exercise
+## Reasoning behind this project
 
 A monthly reporting pack that requires someone to manually pull data, paste it into Excel, and re-build the
 same pivot tables every month is exactly the kind of process FP&A teams are expected to automate. This
@@ -76,4 +76,4 @@ project shows the full chain: a real (if synthetic) transactional source → reu
 interactive dashboard) — built once, refreshed on a schedule, not rebuilt from scratch every month.
 
 ---
-Built by Karis Fang as a portfolio project for FP&A roles.
+Built by Karis Fang as a portfolio project. 
