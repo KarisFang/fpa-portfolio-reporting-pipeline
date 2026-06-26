@@ -90,7 +90,7 @@ this is the single feature that most replaces the "can you re-cut this for last 
 
 **File → Publish → Power BI Service** (free workspace is fine). Once published, I'd:
 - Use **File → Embed report → Publish to web** (the data is synthetic and non-sensitive, so this is safe here)
-  to get a public link for this portfolio/resume.
+  to get a public link for this portfolio.
 
 ## Why this matters
 
