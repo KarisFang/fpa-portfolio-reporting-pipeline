@@ -75,5 +75,8 @@ project shows the full chain: a real (if synthetic) transactional source → reu
 → two different consumption layers for two different audiences (spreadsheet-native stakeholders vs. an
 interactive dashboard) — built once, refreshed on a schedule, not rebuilt from scratch every month.
 
+## Contributors
+- [@KarisFang](https://github.com/KarisFang) — Analysis & SQL
+- [Claude](https://claude.ai) (Anthropic) — Code generation & dashboard
 ---
 Built by Karis Fang as a portfolio project. 
